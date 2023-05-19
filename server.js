@@ -200,7 +200,14 @@ http.listen(3000, function () {
         // connect database (it will automatically create the database if not exists)
         const uri = "mongodb+srv://swaestone:<Innovator10853538>@cluster0.dwufikh.mongodb.net/?retryWrites=true&w=majority"
         // database = client.db("file_server");
-        console.log("Database connected.");
+        async function connect() {
+            try {
+                await MongoServerSelectionError.connect(uri);
+                console.log("Database connected.");
+            } catch (error) {
+                console.error(error);
+            }
+        }
 
         app.get("/pro-versions", function (request, result) {
             result.render("proVersions", {
