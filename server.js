@@ -198,7 +198,7 @@ http.listen(3000, function () {
     }, function (error, client) {
 
         // connect database (it will automatically create the database if not exists)
-        database = client.uri("file_server");
+        // database = client.db("file_server");
         app.get("/pro-versions", function (request, result) {
             result.render("proVersions", {
                 "request": request
