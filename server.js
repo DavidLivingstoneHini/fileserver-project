@@ -198,16 +198,19 @@ http.listen(3000, function () {
     }, function (error, client) {
 
         // connect database (it will automatically create the database if not exists)
+
+        // my own additions
         const uri = "mongodb+srv://swaestone:<Innovator10853538>@cluster0.dwufikh.mongodb.net/?retryWrites=true&w=majority"
         // database = client.db("file_server");
         async function connect() {
             try {
                 await MongoServerSelectionError.connect(uri);
-                console.log("Database connected.");
+                console.log("Database connected."); // Dont delete when clearing my own additions
             } catch (error) {
                 console.error(error);
             }
         }
+        // end my own additions
 
         app.get("/pro-versions", function (request, result) {
             result.render("proVersions", {
