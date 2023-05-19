@@ -1,3 +1,3 @@
 # fileserver-project
-## Aamlitech Project
+## Amalitech Project
 Building a file management system with javascript nodejs
