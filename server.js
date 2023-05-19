@@ -193,12 +193,12 @@ http.listen(3000, function () {
     console.log("Server started at " + mainURL);
 
     // connect with mongo DB server
-    mongoClient.connect("mongodb://localhost:27017", {
+    mongoClient.connect("mongodb+srv://swaestone:<Innovator10853538>@cluster0.dwufikh.mongodb.net/?retryWrites=true&w=majority", {
         useUnifiedTopology: true
     }, function (error, client) {
 
         // connect database (it will automatically create the database if not exists)
-        database = client.db("file_transfer");
+        database = client.db("file_server");
         console.log("Database connected.");
 
         app.get("/pro-versions", function (request, result) {
