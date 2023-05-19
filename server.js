@@ -198,7 +198,8 @@ http.listen(3000, function () {
     }, function (error, client) {
 
         // connect database (it will automatically create the database if not exists)
-        database = client.db("file_server");
+        const uri = "mongodb+srv://swaestone:<Innovator10853538>@cluster0.dwufikh.mongodb.net/?retryWrites=true&w=majority"
+        // database = client.db("file_server");
         console.log("Database connected.");
 
         app.get("/pro-versions", function (request, result) {
