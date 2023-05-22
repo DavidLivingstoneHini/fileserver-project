@@ -17,6 +17,6 @@
     "fs": "0.0.1-security",
     "http": "0.0.1-security",
     "mongodb": "^3.7.3",
-    "mongoose": "^7.1.2"
+    "mongoose": "^7.2.0"
   }
 }

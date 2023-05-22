@@ -9,6 +9,7 @@ app.use(formidable());
 // use mongo DB as database
 var mongodb = require("mongodb");
 var mongoClient = mongodb.MongoClient;
+const mongoose = require("mongoose");
 
 // the unique ID for each mongo DB document
 var ObjectId = mongodb.ObjectId;
@@ -198,7 +199,7 @@ http.listen(3000, function () {
     }, function (error, client) {
 
         // connect database (it will automatically create the database if not exists)
-        // database = client.db("file_server");
+        database = client.db("file_server");
         app.get("/pro-versions", function (request, result) {
             result.render("proVersions", {
                 "request": request
