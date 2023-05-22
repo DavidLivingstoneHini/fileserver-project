@@ -2,6 +2,10 @@
 var express = require("express");
 var app = express();
 
+// Variable to hold conection string
+require('dotenv').config()
+const connectionString = process.env.DB_STRING;
+
 // express formidable is used to parse the form data values
 var formidable = require("express-formidable");
 app.use(formidable());
@@ -194,17 +198,26 @@ http.listen(3000, function () {
     console.log("Server started at " + mainURL);
 
     // connect with mongo DB server
-    mongoClient.connect("mongodb+srv://swaestone:<Innovator10853538>@cluster0.dwufikh.mongodb.net/?retryWrites=true&w=majority", {
-        useUnifiedTopology: true
-    }, function (error, client) {
+    // mongoClient.connect("mongodb+srv://swaestone:<Innovator10853538>@cluster0.dwufikh.mongodb.net/?retryWrites=true&w=majority", {
+    //     useUnifiedTopology: true
+    // }, function (error, client) {
 
-        // connect database (it will automatically create the database if not exists)
-        database = client.db("file_server");
-        app.get("/pro-versions", function (request, result) {
-            result.render("proVersions", {
-                "request": request
-            }); 
-        });
+    //     // connect database (it will automatically create the database if not exists)
+    //     database = client.db("file_server");
+    //     app.get("/pro-versions", function (request, result) {
+    //         result.render("proVersions", {
+    //             "request": request
+    //         }); 
+    //     });
+    mongoClient.connect(connectionString)
+    .then(client => {
+    console.log(`Connected to Database`)
+    const db = client.db('file_server')
+    const usersCollection = db.collection('users')
+    })
+
+    .catch(error => console.error(error))
+    // End of connect database code
 
         app.get("/Admin", async function (request, result) {
             // render an HTML page with number of pages, and posts data
@@ -683,4 +696,4 @@ http.listen(3000, function () {
             });
         });
     });
-});
+// });
