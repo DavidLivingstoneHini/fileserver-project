@@ -198,7 +198,7 @@ http.listen(3000, function () {
     console.log("Server started at " + mainURL);
 
     // connect with mongo DB server
-    // mongoClient.connect("mongodb+srv://swaestone:<Innovator10853538>@cluster0.dwufikh.mongodb.net/?retryWrites=true&w=majority", {
+    // mongoClient.connect(DB_STRING, {
     //     useUnifiedTopology: true
     // }, function (error, client) {
 
