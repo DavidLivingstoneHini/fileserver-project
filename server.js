@@ -47,7 +47,7 @@ app.use("/public/fonts", express.static(__dirname + "/public/fonts"));
 app.set("view engine", "ejs");
 
 // main URL of website
-var mainURL = "fileserver-project.vercel.app";
+var mainURL = "http://localhost:3000";
 
 // global database object
 var database = null;
